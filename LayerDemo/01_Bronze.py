@@ -1,5 +1,5 @@
 # Databricks notebook source
-#Bronze notebook
+#01_Bronze notebook
 from pyspark.sql.types import StructType, StructField, StringType
 from pyspark.sql.functions import current_timestamp, lit, input_file_name
 import os
@@ -59,88 +59,6 @@ bronze_df.write \
 
 # 7) Sanity-check your Bronze table
 display(spark.read.format("delta").load(bronze_path))
-
-# COMMAND ----------
-
-#Silver layer 
-
-from pyspark.sql.functions import col, to_timestamp, to_date
-from pyspark.sql.types import StringType, StructType, StructField
-from delta.tables import DeltaTable
-
-# 1) Paths
-bronze_path = "dbfs:/tmp/bronze/cc_events/"
-silver_path = "dbfs:/tmp/silver/cc_events_enterprise/"
-ref_dir     = "dbfs:/tmp/reference/"
-ref_file    = ref_dir + "cc_features.csv"
-
-# 2) Bootstrap a tiny reference CSV under /tmp/reference if not already there
-if not dbutils.fs.ls(ref_dir):
-    dbutils.fs.mkdirs(ref_dir)
-    csv_content = """app_name,event_type,feature_category
-Photoshop,launch,application
-Photoshop,feature_used,core_feature
-Illustrator,launch,application
-Illustrator,export,export_feature
-"""
-    dbutils.fs.put(ref_file, csv_content, overwrite=True)
-
-# 3) Read Bronze Delta
-bronze_df = spark.read.format("delta").load(bronze_path)
-
-# 4) Cleanse, flatten, cast, dedupe
-silver_ready = (
-    bronze_df
-      .filter("user_id IS NOT NULL AND event_type IS NOT NULL")
-      .withColumn("event_ts",  to_timestamp("event_timestamp","yyyy-MM-dd'T'HH:mm:ss'Z'"))
-      .withColumn("event_date", to_date("event_ts"))
-      .withColumn("os",     col("device.os"))
-      .withColumn("region", col("device.region"))
-      .select("user_id","app_name","event_type",
-              "event_ts","event_date","os","region",
-              "ingest_ts","process_id")
-      .dropDuplicates(["user_id","app_name","event_type","event_ts"])
-)
-
-# 5) Read the reference CSV from /tmp/reference
-feature_ref = spark.read \
-    .option("header", True) \
-    .schema(StructType([
-        StructField("app_name",        StringType(), True),
-        StructField("event_type",      StringType(), True),
-        StructField("feature_category",StringType(), True)
-    ])) \
-    .csv(ref_file)
-
-# 6) Join to enrich / conform
-silver_ready = silver_ready.join(
-    feature_ref,
-    on=["app_name","event_type"],
-    how="left"
-)
-
-# 7) Idempotent upsert into Silver Delta
-if DeltaTable.isDeltaTable(spark, silver_path):
-    DeltaTable.forPath(spark, silver_path) \
-      .alias("s") \
-      .merge(
-        silver_ready.alias("b"),
-        """
-          s.user_id    = b.user_id
-          AND s.app_name    = b.app_name
-          AND s.event_ts    = b.event_ts
-        """
-      ) \
-      .whenMatchedUpdateAll() \
-      .whenNotMatchedInsertAll() \
-      .execute()
-else:
-    silver_ready.write.format("delta") \
-        .mode("overwrite") \
-        .save(silver_path)
-
-# 8) Verify Silver output
-display(spark.read.format("delta").load(silver_path))
 
 # COMMAND ----------
 

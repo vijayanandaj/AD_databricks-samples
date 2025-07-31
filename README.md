@@ -10,4 +10,10 @@ Multiple demo notebooks for Parquet, Delta, Medallion pipelines, etc.
 4. **04_time_travel.ipynb** – Version history & rollback.  
 5. **05_optimize_zorder.ipynb** – Performance tuning (OPTIMIZE/Z-ORDER).
 
+# Layer  Samples
+1. **01_Bronze.ipynb** – Demonstrating creation of Bronze layer  
+2. **02_Silver.ipynb** – Demonstrating creation of Silver layer.  
+3. **03_Gold.ipynb** – Demonstrating creation of Gold layer.
+
+
 *Sample folders organized for demo purposes.*

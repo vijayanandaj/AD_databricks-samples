@@ -1,4 +1,6 @@
 # Databricks Medallion & Delta Labs — Template-ready
+> Advanced program: https://github.com/vijayanandaj/advanced-medallion-spark
+
 ## Executive Overview
 
 ## Agenda at a Glance

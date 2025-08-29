@@ -1,3 +1,29 @@
+# Databricks Medallion & Delta Labs — Template-ready
+
+Run code-backed labs for Delta Lake and Medallion (Bronze/Silver/Gold).
+
+**Databricks:** Repos → Add (URL) → attach cluster → open `labs/` or `medallion/`.  
+**Local (smoke tests):**
+    python3.11 -m venv .venv && source .venv/bin/activate
+    pip install -r requirements.txt
+    jupyter lab
+
+## Modules
+| Area | Notebook | Est. time |
+|---|---|---|
+| Delta ACID | `labs/01-delta-acid.ipynb` | 30–45m |
+| Unified batch + stream | `labs/02-unified-batch-stream.ipynb` | 20–30m |
+| Schema evolution | `labs/03-schema-evolution.ipynb` | 20–30m |
+| Time travel | `labs/04-time-travel.ipynb` | 20–30m |
+| Schema merge | `labs/05-schema-merge.ipynb` | 20–30m |
+| OPTIMIZE & Z-ORDER | `labs/06-zorder.ipynb` | 20–30m |
+| Audit & lineage | `labs/07-audit-lineage.ipynb` | 15–25m |
+| CDF sample | `labs/08-cdf-sample.ipynb` | 15–25m |
+| MERGE INTO | `labs/09-merge-into.ipynb` | 20–30m |
+| Medallion pipeline | `medallion/*` | 45–60m |
+| Layered design demos | `layer-demo/*` | 60–90m |
+
+> Synthetic data only; no PHI/PII.
 # AD_databricks-samples
 
 Multiple demo notebooks for Parquet, Delta, Medallion pipelines, etc.

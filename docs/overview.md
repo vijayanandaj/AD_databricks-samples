@@ -1,4 +1,4 @@
-# For Managers
+# Program Overview
 
 ## What this portfolio demonstrates
 - **Code-first training**: Every topic has a runnable notebook and a small dataset generator.

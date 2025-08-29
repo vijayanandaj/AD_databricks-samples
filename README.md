@@ -1,5 +1,8 @@
 # Databricks Medallion & Delta Labs — Template-ready
-## For Managers — Executive Overview
+## Executive Overview
+
+> Learn more in the **[Program Overview](docs/overview.md)**.
+
 
 This repository is a **code-backed training portfolio** for Databricks & Delta Lake. Every concept is paired with runnable notebooks, synthetic datasets, and CI checks — so the material is **demonstrably real** (not slideware).
 
@@ -34,7 +37,6 @@ This repository is a **code-backed training portfolio** for Databricks & Delta L
 
 > Security: Only synthetic data is included; participants are instructed **not** to upload client data. See `SECURITY.md`.
 
-> Managers: a deeper overview is available in **docs/for-managers.md**.
 
 Run code-backed labs for Delta Lake and Medallion (Bronze/Silver/Gold).
 

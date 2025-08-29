@@ -1,4 +1,40 @@
 # Databricks Medallion & Delta Labs — Template-ready
+## For Managers — Executive Overview
+
+This repository is a **code-backed training portfolio** for Databricks & Delta Lake. Every concept is paired with runnable notebooks, synthetic datasets, and CI checks — so the material is **demonstrably real** (not slideware).
+
+**Audience**: Data engineers, analytics engineers, platform teams  
+**Formats**: 90-min demo • half-day workshop • 1–3 day enablement • custom coaching  
+**Prereqs**: Basic SQL/Python; Databricks workspace access (or run locally for smoke tests)
+
+### What your team will be able to do
+- Apply **Medallion (Bronze/Silver/Gold)** patterns with Delta Lake
+- Use **time travel, schema evolution/merge, CDF** safely in production
+- Optimize with **OPTIMIZE & Z-ORDER**, and reason about cost/perf trade-offs
+- Build a small **streaming pipeline** and reason about batch vs stream
+- Ship **governed jobs** (optionally via Databricks Asset Bundles)
+
+### Why this is credible
+- ✅ **Runnable** notebooks with synthetic data (no PHI/PII)
+- ✅ **Reproducible**: requirements, CI smoke run, optional Codespaces
+- ✅ **Template-ready**: teams can clone their own copy without touching the original
+
+### Program options (typical)
+| Option | Outcomes | Agenda (high level) |
+|---|---|---|
+| **90-min demo** | Awareness; see value quickly | Medallion tour, Delta ACID/time travel, quick perf tips |
+| **1-day workshop** | Hands-on skills | Labs 01–06; mini streaming lab; Q&A |
+| **3-day enablement** | Build confidence + patterns | All labs + layered exercises; job orchestration; design reviews |
+
+### Success metrics you can track
+- Time to first successful **Bronze→Silver→Gold** run
+- % of pipelines with **schema evolution** and rollback tested
+- Read latency improvement after **OPTIMIZE/Z-ORDER**
+- Number of jobs moved under **governed workflows**
+
+> Security: Only synthetic data is included; participants are instructed **not** to upload client data. See `SECURITY.md`.
+
+> Managers: a deeper overview is available in **docs/for-managers.md**.
 
 Run code-backed labs for Delta Lake and Medallion (Bronze/Silver/Gold).
 

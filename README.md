@@ -1,4 +1,6 @@
 # Databricks Medallion & Delta Labs — Template-ready
+> Foundations repo: https://github.com/vijayanandaj/AD_databricks-samples
+
 > Advanced program: https://github.com/vijayanandaj/advanced-medallion-spark
 
 ## Executive Overview

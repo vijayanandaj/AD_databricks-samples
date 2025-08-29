@@ -1,6 +1,17 @@
 # Databricks Medallion & Delta Labs — Template-ready
 ## Executive Overview
 
+## Agenda at a Glance
+
+| Day | Focus | Key topics | Representative labs |
+|---|---|---|---|
+| **1** | Foundations | Parquet fundamentals • Why Medallion • Delta basics | `basic-deltatable-creation/Basic_delta_plus_Checkpoint.ipynb`, `basic-deltatable-creation/Metadata_mgmt.ipynb`, `medallion/01-covid-ingestion.ipynb` |
+| **2** | Delta deep dive + Bronze→Silver | ACID • Time travel • Schema evolution/merge • CDF | `labs/01-delta-acid.ipynb`, `labs/03-schema-evolution.ipynb`, `labs/04-time-travel.ipynb`, `labs/05-schema-merge.ipynb`, `labs/09-merge-into.ipynb`, `labs/08-cdf-sample.ipynb`, `medallion/02-e2e-events.ipynb` |
+| **3** | Performance & end-to-end | OPTIMIZE/Z-ORDER • Bloom filters (concept) • Audit/lineage • Streaming mini-lab • DLT/automation | `labs/06-zorder.ipynb`, `labs/07-audit-lineage.ipynb`, `labs/02-unified-batch-stream.ipynb`, `automation/DLT.ipynb`, `layer-demo/Telemetry_DLT_Example.ipynb`, `layer-demo/Exercise2/E2E_exercise.ipynb` |
+
+> Full details: **[Three-Day Program Agenda](docs/agenda.md)**.
+
+
 > See the detailed **[Three-Day Program Agenda](docs/agenda.md)**.
 
 

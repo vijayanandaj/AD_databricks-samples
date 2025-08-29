@@ -1,6 +1,9 @@
 # Databricks Medallion & Delta Labs — Template-ready
 ## Executive Overview
 
+> See the detailed **[Three-Day Program Agenda](docs/agenda.md)**.
+
+
 > Learn more in the **[Program Overview](docs/overview.md)**.
 
 
